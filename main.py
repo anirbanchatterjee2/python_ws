@@ -1,17 +1,50 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Simple Calculator CLI Tool
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def add(a, b):
+    return a + b
 
 
-# Press the green button in the gutter to run the script.
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def divide(a, b):
+    if b == 0:
+        return 'Error: Division by zero.'
+    return a / b
+
+
+def main():
+    print('Simple Calculator')
+    print('Select operation:')
+    print('1. Add')
+    print('2. Subtract')
+    print('3. Multiply')
+    print('4. Divide')
+    choice = input('Enter choice (1/2/3/4): ')
+    if choice not in ['1', '2', '3', '4']:
+        print('Invalid choice')
+        return
+    try:
+        num1 = float(input('Enter first number: '))
+        num2 = float(input('Enter second number: '))
+    except ValueError:
+        print('Invalid input. Please enter numbers.')
+        return
+    if choice == '1':
+        print('Result:', add(num1, num2))
+    elif choice == '2':
+        print('Result:', subtract(num1, num2))
+    elif choice == '3':
+        print('Result:', multiply(num1, num2))
+    elif choice == '4':
+        print('Result:', divide(num1, num2))
+
+
 if __name__ == '__main__':
-    print_hi('Anirban')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-# Testing commit
+    main()
